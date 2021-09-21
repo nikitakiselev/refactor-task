@@ -6,18 +6,11 @@ namespace App;
 
 use InvalidArgumentException;
 
-/**
- * Class CrmManager
- * @package App
- */
+// подобный phpdoc не несёт полезной нагрузки
 class CrmManager
 {
     private BazSender $client;
-
-    /**
-     * @var array
-     */
-    private $settings;
+    private array $settings; // typehint вместо phpdoc
 
     public function __construct(array $settings)
     {
@@ -30,14 +23,13 @@ class CrmManager
         }
 
         $this->settings = $settings;
-        $this->client = new BazSender();
+        $this->client = new BazSender(); // Повышает связанность классов. Лучше прокинуть через конструктор
     }
 
     /**
      * Sends the person to a crm
      *
-     * @param array $clientEntity
-     * @return int
+     * // лишнее, так как продублировано через typehint
      */
     public function sendPerson(array $clientEntity): int
     {

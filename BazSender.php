@@ -4,18 +4,19 @@ declare(strict_types=1);
 
 namespace App;
 
-class BazSender extends Sender
+class BazSender extends Sender // Класс Sender финальный. Нельзя наследоваться от финального класса.
 {
+    public const CODE_SUCCESS = 200;
+
     /**
      * Sends data to the Baz crm
      *
-     * @param array $data
-     * @return int
+     * // Лучше использовать type hints вместо phpdoc. Так код будет чище и его легче поддерживать
      */
-    public function send(array $data)
+    public function send(array $data): int
     {
         //@todo Do not implement a logic for send specifically. Imagine that she is here.
 
-        return 200;
+        return static::CODE_SUCCESS; // вынес в константу хардкод
     }
 }
